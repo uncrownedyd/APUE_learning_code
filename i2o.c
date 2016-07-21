@@ -1,7 +1,7 @@
 #include "apue.h"
 #include <myerr.h>
 
-#define BUFFSIZE    4096
+#define BUFFSIZE    2048
 
 int
 main(void)
