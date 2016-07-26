@@ -17,12 +17,16 @@ main(void)
     if (write(fd, buf1, 10) != 10)
         err_sys("buf1 write error");
     /* offset now is 10 */
+    
+    int newfd;
+    if((newfd = dup2(fd,3)) == -1)
+        err_sys("dup error");
 
 //    if(lseek(fd, 16384, SEEK_SET) == -1)
 //        err_sys("lseek error");
     /* offset now = 16384 */
     
-    if(pwrite(fd, buf2, 10, 64) != 10)
+    if(pwrite(3, buf2, 10, 64) != 10)
         err_sys("buf2 write error");
 
 //    if((currpos = lseek(fd, 0, SEEK_CUR)) == -1)
